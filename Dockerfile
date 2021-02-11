@@ -1,6 +1,6 @@
 FROM python:3
 
-RUN pip install jupyter pandas sklearn matplotlib ipympl RISE jupyter_contrib_nbextensions sympy=1.71.1
+RUN pip install jupyter pandas sklearn matplotlib ipympl RISE jupyter_contrib_nbextensions sympy==1.7.1
 RUN jupyter contrib nbextension install --system
 
 # Copy raw data
