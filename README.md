@@ -29,3 +29,6 @@ Bayesian melding was applied to three different epidemiological models:
 Due to step 1. being very slow and the curse of dimensionality (especially for SEIRD), we also tried to perform deterministic seeding in order to reduce the search space, with limited success.
 
 Authors: [G. Tsiotas](https://tsiotas.com), [L.S. Lorello](https://github.com/HashakGik).
+
+We also maintain a public dataset of Italian regions' colors at: [https://github.com/tsiotas/covid-19-zone].
+This dataset is updated every day and contains the colors of each region, starting from November, 6th, 2020 (the first day in which the Government decided to apply a color-based scheme).
