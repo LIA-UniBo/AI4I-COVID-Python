@@ -25,7 +25,8 @@ class Joint_pdf:
         out = 1
 
         for k, v in self.marginals.items():
-            out *= stats.density(v)(np.nan_to_num(realization[k])).evalf()  # Assuming marginals are independent...
+            # out *= stats.density(v)(np.nan_to_num(realization[k])).evalf()  # Assuming marginals are independent...
+            out *= stats.density(v)(np.nan_to_num(realization[k])).evalf() ** (1 / len(self.marginals.items()))  # Logarithmic pooling of marginals
 
         return np.nan_to_num(out)
 
@@ -55,6 +56,7 @@ def melding(model, model_args, input_prior, output_prior, input_likelihood, outp
         posteriors_np[i] = [v for _, v in tmp.items()]
 
     posteriors_np = np.nan_to_num(posteriors_np)
+    posteriors_np /= np.sum(posteriors_np)
     q_ind = gaussian_kde(posteriors_np.T)
 
     weights = np.zeros(len(samples), dtype=float)
