@@ -25,8 +25,8 @@ class Joint_pdf:
         out = 1
 
         for k, v in self.marginals.items():
-            # out *= stats.density(v)(np.nan_to_num(realization[k])).evalf()  # Assuming marginals are independent...
-            out *= stats.density(v)(np.nan_to_num(realization[k])).evalf() ** (1 / len(self.marginals.items()))  # Logarithmic pooling of marginals
+            out *= stats.density(v)(np.nan_to_num(realization[k])).evalf()  # Assuming marginals are independent...
+            # out *= stats.density(v)(np.nan_to_num(realization[k])).evalf() ** (1 / len(self.marginals.items()))  # Logarithmic pooling of marginals
 
         return np.nan_to_num(out)
 
